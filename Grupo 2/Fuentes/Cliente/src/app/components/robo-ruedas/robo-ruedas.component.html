@@ -1,0 +1,56 @@
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title> Seleccione qué ruedas fueron robadas </ion-card-title>
+    </ion-card-header>
+    
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-list>
+              <ion-item>
+                <ion-text>Rueda delantera derecha</ion-text>
+                <ion-toggle [(ngModel)]="ruedas.delanteraDer" slot="start" ></ion-toggle>
+              </ion-item> 
+
+              <ion-item> 
+                <ion-text>Rueda delantera izquierda</ion-text>
+                <ion-toggle [(ngModel)]="ruedas.delanteraIzq"  slot="start" ></ion-toggle>
+              </ion-item>
+
+            </ion-list>
+          </ion-col>
+
+          <ion-col>
+            <ion-list>
+              <ion-item>
+                <ion-text> Rueda trasera izquierda </ion-text>
+                <ion-toggle [(ngModel)]="ruedas.traseraIzq" slot="start"></ion-toggle>
+              </ion-item>
+
+              <ion-item>
+                <ion-text>Rueda trasera derecha </ion-text>
+                <ion-toggle [(ngModel)]="ruedas.traseraDer" slot="start"></ion-toggle>
+              </ion-item>
+              
+            </ion-list>
+          </ion-col>
+
+          <ion-col>
+            <ion-item>
+              <ion-text> Rueda de repuesto</ion-text>
+              <ion-toggle [(ngModel)]="ruedas.repuesto" slot="start"></ion-toggle>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+          
+
+      <ion-list style="text-align:center">
+
+        <ion-button (click)="update()">Confirmar</ion-button>
+           
+      </ion-list>   
+      
+    </ion-card-content>
+  </ion-card>

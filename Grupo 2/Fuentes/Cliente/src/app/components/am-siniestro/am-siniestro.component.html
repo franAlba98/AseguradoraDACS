@@ -1,0 +1,152 @@
+
+<form [formGroup]="formularioSiniestro" (ngSubmit)="altaSiniestro()">
+  <ion-card> 
+    <ion-select placeholder="Seleccione el vehículo del siniestro"
+                okText="Aceptar" 
+                cancelText="Cancelar"
+                interface="alert"
+                (ionChange)="optionsFnVehiculo($event)"
+                value="i"
+                >
+                
+      <ion-select-option text-wrap *ngFor = 'let v of vehiculo ; let i = index' value="v" > {{v.patente}} - {{v.marca}} {{v.modelo}} {{v.version}} {{v.anio}}</ion-select-option> 
+    </ion-select>
+  </ion-card>
+
+  <ion-header translucent>
+    <ion-toolbar>
+      <ion-segment>
+        <ion-segment-button color="success" 
+                            *ngFor="let name of ['Rotura de cristales', 'Robo de ruedas']"
+                            (click)="segmentChosen(name)"
+                            >
+          <ion-label>{{name}}</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+    </ion-toolbar>   
+  </ion-header>
+
+  <ion-grid class="ion-text-center">
+    <ion-row>
+      <ion-col class="ion-align-self-start">
+        <ion-item>
+          <ion-icon name="calendar-outline" slot="start"></ion-icon>
+                <ion-label position="stacked">Fecha</ion-label>
+                <ion-datetime formControlName="fecha" displayFormat="DD-MM-YYYY" placeholder="DD-MM-YYYY" doneText="Aceptar" cancelText="Cancelar"></ion-datetime>
+        </ion-item>
+      </ion-col>
+      <ion-col class="ion-align-self-start">
+        <ion-item>
+          <ion-icon name="time-outline" slot="start"></ion-icon>
+          <ion-label position="stacked">Hora</ion-label>
+          <ion-datetime formControlName="hora" displayFormat="HH:mm" doneText="Aceptar" cancelText="Cancelar"></ion-datetime>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col> 
+        <ion-item>
+          <ion-icon slot="start" name="business-outline"></ion-icon>
+          <ion-label position="stacked">Localidad</ion-label>
+          <ion-input formControlName="localidad" [value]="siniestro.localidad"></ion-input>                                                         
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item>
+          <ion-icon slot="start" name="map-outline"></ion-icon>
+          <ion-label position="stacked">Provincia</ion-label>
+          <ion-input formControlName="provincia" [value]="siniestro.provincia"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-icon slot="start" name="home-outline"></ion-icon>
+          <ion-label position="stacked">Calle</ion-label>
+          <ion-input formControlName="calle" [value]="siniestro.calle"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item>
+          <ion-icon slot="start" name="keypad-outline"></ion-icon>
+          <ion-label position="stacked">Código postal</ion-label>
+          <ion-input formControlName="codigoPostal" [value]="siniestro.codigoPostal"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+        <ion-card> 
+          <ion-select placeholder="Seleccione agencia"
+                      okText="Aceptar" 
+                      cancelText="Cancelar"
+                      interface="alert"
+                      (ionChange)="optionsFnAgencia($event)"
+                      > 
+              <ion-select-option text-wrap *ngFor = 'let a of agencia' [value]="a"> {{ a.nombre }} - {{a.calleAgencia}} {{a.alturaAgencia}}, {{a.ciudadAgencia}} </ion-select-option>
+          </ion-select>
+        </ion-card> 
+  </ion-grid>
+
+  <app-rotura-cristales *ngIf="tipoSiniestro === 'Rotura de cristales'" (emitterCristales)="updateCristales($event)"></app-rotura-cristales>
+  <app-robo-ruedas *ngIf="tipoSiniestro === 'Robo de ruedas'" (emitterRuedas)="updateRuedas($event)"></app-robo-ruedas>
+
+  <ion-card> 
+      <ion-card-header>
+      <ion-toolbar class="marginless">
+        <ion-card-title> Adjuntar imágenes </ion-card-title>
+        
+        <div *ngIf="plataforma === 'Android'" slot="end">
+          <ion-button (click)="takePicture()"  size="small" color="success" shape="round" class="spacebetweenbuttons" > 
+            <ion-icon name="camera"></ion-icon>
+          </ion-button>
+
+          <ion-button (click)="getPictureFromGallery()" size="small" color="success" shape="round"> 
+            <ion-icon name="images"></ion-icon>
+          </ion-button>
+        </div>
+
+      <div *ngIf="plataforma === 'Desktop'" slot="end" class="myfileupload-buttonbar">
+        <ion-button size="small" color="success" shape="round">
+            <span >Añadir archivos</span>
+            <input type="file" 
+                   accept="image/*"
+                   (input)="fileChoosen($event)"
+                   name="image"
+                   multiple="multiple"
+                   />
+          </ion-button>
+
+          <ion-button (click)="submitPhoto()" size="small" color="secondary" shape="round"> Subir fotos </ion-button>
+      </div>
+      
+        </ion-toolbar>
+      </ion-card-header>
+
+    <ion-row>    
+      <ion-col>
+        <ion-card-content>
+            <img *ngFor="let url of urls" [src]="url" alt="" height="100" 
+            style="border-radius: 10%;
+                   padding: 1%;">
+        </ion-card-content>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+  <ion-item>
+    <ion-label position="floating">Descripción del siniestro</ion-label>
+    <ion-input formControlName="descripcion" [value]="siniestro.descripcion"></ion-input>
+  </ion-item>
+
+   
+  <ion-list style="text-align:center">
+
+    <ion-button type="submit">
+      Enviar siniestro
+    </ion-button>
+    
+  </ion-list>   
+  
+</form>

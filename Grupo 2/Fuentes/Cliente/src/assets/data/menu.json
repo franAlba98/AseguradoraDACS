@@ -1,0 +1,32 @@
+[
+    {
+        "title": "Nuevo siniestro",
+        "url": "/nuevo-siniestro",
+        "icon": "add-circle"
+      },
+      {
+        "title": "Lista de siniestros",
+        "url": "/lista-siniestros",
+        "icon": "list"
+      },
+      {
+        "title": "Poliza",
+        "url": "/poliza",
+        "icon": "car"
+      },
+      {
+        "title": "Datos del usuario",
+        "url": "/datos-usuario",
+        "icon": "person"
+      },
+      {
+        "title": "Bandeja de entrada",
+        "url": "/bandeja-entrada",
+        "icon": "mail"
+      },
+     {
+        "title": "Bandeja de salida",
+        "url": "/bandeja-salida",
+        "icon": "paper-plane"
+      }
+]

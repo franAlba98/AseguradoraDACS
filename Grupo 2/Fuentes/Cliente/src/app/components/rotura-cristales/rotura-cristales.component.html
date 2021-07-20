@@ -1,0 +1,61 @@
+
+<ion-card> 
+    <ion-card-header>
+      <ion-card-title> Seleccione qué cristales fueron dañados </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-list>
+            <ion-item>
+              <ion-text>Parabrisas trasero</ion-text>
+              <ion-toggle [(ngModel)]="cristales.parabrisasTrasero" slot="start"></ion-toggle>
+            </ion-item>   
+           
+            <ion-item>
+              <ion-text> Ventana delantera izquierda </ion-text>
+              <ion-toggle [(ngModel)]="cristales.ventanaDelanteraIzq" slot="start"></ion-toggle>
+            </ion-item>
+
+            <ion-item> 
+              <ion-text> Ventana delantera derecha </ion-text>
+              <ion-toggle [(ngModel)]="cristales.ventanaDelanteraDer" slot="start" ></ion-toggle>
+            </ion-item>
+
+          </ion-list>
+        </ion-col>
+
+        <ion-col>
+          <ion-list>
+            <ion-item>
+              <ion-text> Parabrisas delantero </ion-text>
+              <ion-toggle [(ngModel)]="cristales.parabrisasDelantero" slot="start"></ion-toggle>
+            </ion-item>
+
+            <ion-item>
+              <ion-text> Ventana trasera derecha </ion-text>
+              <ion-toggle  [(ngModel)]="cristales.ventanaTraseraDer" slot="start"></ion-toggle>
+            </ion-item>
+
+            <ion-item>
+              <ion-text> Ventana trasera izquierda</ion-text>
+              <ion-toggle [(ngModel)]="cristales.ventanaTraseraIzq" slot="start"></ion-toggle>
+            </ion-item>
+
+
+          </ion-list>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    
+    <ion-list style="text-align:center">
+
+      <ion-button (click)="update()">Confirmar</ion-button>
+         
+    </ion-list>   
+    
+  </ion-card-content>
+</ion-card>

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "732359567356",
+    "firebase_url": "https://aseguradoradacs-android.firebaseio.com",
+    "project_id": "aseguradoradacs-android",
+    "storage_bucket": "aseguradoradacs-android.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:732359567356:android:b37d301b0735ed6024f479",
+        "android_client_info": {
+          "package_name": "io.ionic.starter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "732359567356-jajr6dri2mtjcs0q0e314l04cf1k3q1d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqljkIE8hdXngsHZSnxY7QPnhS-X4d71A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "732359567356-jajr6dri2mtjcs0q0e314l04cf1k3q1d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

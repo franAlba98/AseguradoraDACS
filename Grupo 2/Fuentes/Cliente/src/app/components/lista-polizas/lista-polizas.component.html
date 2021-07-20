@@ -1,0 +1,23 @@
+<ion-card (click)="expandItem(item)" *ngFor="let item of items">
+  <ion-card-header>
+    <ion-card-title>
+      <ion-icon name="car"></ion-icon> 
+      {{item.vehiculoMarca.toUpperCase() + ' ' + item.vehiculoModelo.toUpperCase() + ' ' + item.vehiculoVersion + ' ' + item.vehiculoAnio}} 
+    </ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    <app-expandable expandHeight="300px" [expanded]="item.expanded">
+      <div> 
+        Patente: {{item.vehiculoPatente}}
+        <br><br>
+          Cobertura: {{item.coberturaNombre}} <br>
+          Cubre:  {{item.tipoSiniestroHechosGeneradores}} <br>
+          Tarifa: ${{item.polizaTarifa}} <br>
+          Fecha de Contratacion: {{item.polizaFechaContratacion | date:'dd/MM/yyyy'}} <br>
+          Fecha de Renovacion: {{item.polizaFechaRenovacion | date:'dd/MM/yyyy'}} <br>
+      </div>
+    </app-expandable>
+  </ion-card-content>
+
+</ion-card> 

@@ -1,0 +1,47 @@
+<app-header [titulo]="titulo"></app-header>
+
+<ion-content [fullscreen]="true">
+
+   <ion-card>
+         <ion-card-content>
+            <ion-list>
+                <ion-item> 
+                   <b> <ion-text color="secondary"> Nombre: </ion-text> </b>
+                   &nbsp;
+                  <ion-text> {{asegurado.nombre}} </ion-text>  
+                </ion-item>
+                
+                <ion-item>
+                    <b>  <ion-text color="secondary"> Apellido: </ion-text>  </b> 
+                    &nbsp;
+                    <ion-text> {{asegurado.apellido}} </ion-text>
+                </ion-item>
+
+                <ion-item>
+                    <b>  <ion-text color="secondary"> Correo: </ion-text>  </b> 
+                    &nbsp;
+                    <ion-text> {{asegurado.correo}} </ion-text>
+                </ion-item>
+
+                <ion-item>
+                    <b>  <ion-text color="secondary"> DNI: </ion-text>  </b> 
+                    &nbsp;
+                    <ion-text> {{asegurado.dni}} </ion-text>
+                </ion-item>
+                
+                <ion-item>
+                    <b>    <ion-text color="secondary"> Telefono: </ion-text>  </b> 
+                    &nbsp;
+                    <ion-text> {{asegurado.telefono}} </ion-text>
+                </ion-item>
+
+                <ion-item>
+                    <b>  <ion-text color="secondary"> Domicilio: </ion-text>  </b> 
+                     &nbsp;
+                    <ion-text> {{asegurado.domicilio}} </ion-text>
+                </ion-item>
+            </ion-list>
+        </ion-card-content>
+    </ion-card>
+</ion-content>
+

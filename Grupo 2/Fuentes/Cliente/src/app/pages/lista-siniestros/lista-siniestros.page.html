@@ -1,0 +1,28 @@
+<app-header [titulo]="titulo"></app-header>
+
+<ion-content [fullscreen]="true">
+
+    <ion-card (click)="expandItem(item)" *ngFor="let item of items">
+        <ion-card-header>
+            <ion-card-title> 
+                    <ion-icon name="newspaper-outline"></ion-icon> 
+                    {{item.fecha + ' ' + item.marca.toUpperCase() + ' ' + item.modelo.toUpperCase() + ' ' + item.versionVehiculo + ' ' + item.anio}}
+            </ion-card-title>
+        </ion-card-header>   
+        <app-expandable expandHeight="500px" [expanded]="item.expanded">
+            <p> Codigo de Siniestro: {{ item.idSiniestro }} </p>
+            <p> Cobertura: {{ item.nombreCobertura }}</p>
+            <p> Siniestro: {{ item.hechoGenerador }}</p>
+            <p> Patente: {{ item.patente }}</p>
+            <p> Fecha: {{ item.fecha | date: 'dd/MM/yyyy' }}</p>
+            <p> Hora: {{ item.hora }}</p>
+            <p> Descripcion del incidente: {{ item.descripcion }} </p>
+            <p> Modificar datos: 
+                <ion-button (click)="modifyPage(item.idSiniestro)" size = 'small' disabled = {{!item.modificable}}> Editar </ion-button>
+            </p>
+            <h6> Solo se pueden modificar los datos antes de que el siniestro comience a ser analizado. </h6>
+
+            </app-expandable>
+    </ion-card>
+
+</ion-content>
